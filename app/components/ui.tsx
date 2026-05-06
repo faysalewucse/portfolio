@@ -23,10 +23,12 @@ export function Section({
   );
 }
 
+export const TOTAL_SECTIONS = "07";
+
 export function SectionLabel({ n, label }: { n: string; label: string }) {
   return (
     <div className="section-label">
-      <span>[ {n} / 06 ]</span>
+      <span>[ {n} / {TOTAL_SECTIONS} ]</span>
       <span>{label}</span>
     </div>
   );

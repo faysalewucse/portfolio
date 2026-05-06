@@ -43,21 +43,6 @@ const GROUPS: Group[] = [
       },
       {
         n: "02",
-        name: "PixelsCraft",
-        tag: "Creative · App Store",
-        year: "2025",
-        hook:
-          "Creative consumer app shipped to the App Store. Contributed to development and owned App Store deployment end-to-end, including in-app purchase integration.",
-        stack: ["Flutter", "Dart", "In-App Purchase", "App Store"],
-        links: [
-          {
-            label: "App Store ↗",
-            href: "https://apps.apple.com/us/app/pixelscraft/id6471664167",
-          },
-        ],
-      },
-      {
-        n: "03",
         name: "NerdCRM",
         tag: "Internal · Cross-Platform",
         year: "2025",
@@ -76,7 +61,7 @@ const GROUPS: Group[] = [
         ],
       },
       {
-        n: "04",
+        n: "03",
         name: "Daily Habitz",
         tag: "Productivity · App Store",
         year: "2025",

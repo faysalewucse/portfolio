@@ -1,8 +1,10 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 
 export function ScrollRevealer() {
+  const pathname = usePathname();
   useEffect(() => {
     if (typeof window === "undefined" || typeof IntersectionObserver === "undefined") {
       return;
@@ -38,7 +40,7 @@ export function ScrollRevealer() {
     });
 
     return () => io.disconnect();
-  }, []);
+  }, [pathname]);
 
   return null;
 }

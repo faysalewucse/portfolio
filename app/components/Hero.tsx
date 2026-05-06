@@ -12,13 +12,6 @@ export function Hero() {
       <CircuitTraces className="pointer-events-none absolute inset-0 h-full w-full opacity-70 [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_85%)]" />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_30%_30%,rgba(0,212,255,0.06),transparent_60%)]" />
 
-      <header className="relative z-10 mx-auto flex w-full max-w-[1200px] items-center justify-between px-6 pt-8 font-mono text-xs tracking-widest text-muted sm:px-10">
-        <span className="uppercase">
-          <span className="text-foreground">FA</span> / portfolio
-        </span>
-        <span className="hidden sm:inline">v2026.04</span>
-      </header>
-
       <div className="relative z-10 flex flex-1 items-center">
         <div className="mx-auto w-full max-w-[1200px] px-6 sm:px-10">
           <div className="reveal mb-8 inline-block" style={REVEAL("0.1s")}>
@@ -94,7 +87,7 @@ export function Hero() {
           <span className="inline-block h-px w-8 bg-border-strong" />
           Scroll
         </span>
-        <span>[ 01 / 06 ] hero</span>
+        <span>[ 01 / 07 ] hero</span>
       </div>
     </section>
   );
