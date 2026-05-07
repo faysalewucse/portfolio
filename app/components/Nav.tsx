@@ -14,7 +14,7 @@ const LINKS: Array<{ label: string; href: string }> = [
 export function Nav() {
   return (
     <nav className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/70 backdrop-blur">
-      <div className="mx-auto flex w-full max-w-[1200px] items-center justify-between gap-6 px-6 py-4 font-mono text-xs uppercase tracking-widest sm:px-10">
+      <div className="mx-auto flex w-full max-w-300 items-center justify-between gap-6 px-6 py-4 font-mono text-xs uppercase tracking-widest sm:px-10">
         <Link
           href="/"
           aria-label="Faysal Ahmed — home"
