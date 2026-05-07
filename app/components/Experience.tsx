@@ -59,7 +59,7 @@ export function Experience() {
             y1="0"
             x2="4"
             y2="1000"
-            stroke="rgba(255,255,255,0.08)"
+            stroke="var(--trace-base-stroke)"
             strokeWidth={1}
             vectorEffect="non-scaling-stroke"
           />

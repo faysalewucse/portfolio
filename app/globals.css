@@ -9,6 +9,31 @@
   --border-strong: rgba(255, 255, 255, 0.14);
   --accent: #00d4ff;
   --accent-soft: rgba(0, 212, 255, 0.18);
+  --grid-line: rgba(255, 255, 255, 0.025);
+  --trace-base-stroke: rgba(255, 255, 255, 0.06);
+  --node-stroke: rgba(255, 255, 255, 0.18);
+  --node-stroke-strong: rgba(255, 255, 255, 0.9);
+  --code-bg: rgba(0, 212, 255, 0.08);
+  --hero-glow: rgba(0, 212, 255, 0.06);
+  color-scheme: dark;
+}
+
+:root.theme-light {
+  --bg: #f4f5f7;
+  --surface: #ffffff;
+  --text: #0a0a0a;
+  --muted: #4b5260;
+  --border: rgba(0, 0, 0, 0.08);
+  --border-strong: rgba(0, 0, 0, 0.16);
+  --accent: #0891b2;
+  --accent-soft: rgba(8, 145, 178, 0.16);
+  --grid-line: rgba(0, 0, 0, 0.045);
+  --trace-base-stroke: rgba(0, 0, 0, 0.1);
+  --node-stroke: rgba(0, 0, 0, 0.22);
+  --node-stroke-strong: rgba(0, 0, 0, 0.78);
+  --code-bg: rgba(8, 145, 178, 0.1);
+  --hero-glow: rgba(8, 145, 178, 0.06);
+  color-scheme: light;
 }
 
 @theme inline {
@@ -41,9 +66,9 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
-  background-size: 64px 64px;
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 25px 25px;
   background-position: -1px -1px;
 }
 
@@ -84,14 +109,14 @@ body {
 }
 
 .trace-base {
-  stroke: rgba(255, 255, 255, 0.06);
+  stroke: var(--trace-base-stroke);
   stroke-width: 1;
   fill: none;
 }
 
 .trace-node {
   fill: var(--bg);
-  stroke: rgba(255, 255, 255, 0.18);
+  stroke: var(--node-stroke);
   stroke-width: 1;
 }
 
@@ -178,6 +203,13 @@ body {
   will-change: opacity, transform;
 }
 
+/* Theme-conditional visibility — used for project screenshots that swap by mode.
+   Default (no class on root) = dark theme; .theme-light flips them. */
+.shot-on-light { display: none; }
+.shot-on-dark { display: block; }
+:root.theme-light .shot-on-light { display: block; }
+:root.theme-light .shot-on-dark { display: none; }
+
 /* Long-form prose typography for blog posts */
 .prose {
   max-width: 720px;
@@ -251,9 +283,9 @@ body {
   font-size: 0.88em;
   padding: 2px 6px;
   border-radius: 4px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  color: var(--text);
+  background: var(--code-bg);
+  border: 1px solid var(--accent-soft);
+  color: var(--accent);
 }
 
 .prose pre {

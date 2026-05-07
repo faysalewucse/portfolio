@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { POSTS } from "../blog/posts";
+import { POSTS, TYPE_META, postChipLabel } from "../blog/posts";
 import type { PostMeta } from "../blog/posts";
 import { Pill, Section, SectionHeading } from "./ui";
 
@@ -27,7 +27,7 @@ export function Blog() {
       <div className="mt-12 flex justify-center">
         <Link
           href="/blog"
-          className="group inline-flex items-center gap-2 border border-border-strong bg-black/30 px-6 py-3 font-mono text-xs uppercase tracking-widest text-foreground backdrop-blur transition-colors hover:border-accent hover:text-accent"
+          className="group inline-flex items-center gap-2 border border-border-strong bg-surface/70 px-6 py-3 font-mono text-xs uppercase tracking-widest text-foreground backdrop-blur transition-colors hover:border-accent hover:text-accent"
         >
           View all writing
           <span className="transition-transform group-hover:translate-x-0.5">→</span>
@@ -43,7 +43,9 @@ function BlogCard({ post }: { post: PostMeta }) {
       href={`/blog/${post.slug}`}
       className="card-glow group relative flex h-full flex-col gap-5 overflow-hidden border border-border bg-surface/40 p-6 transition-colors hover:border-border-strong sm:p-8"
     >
-      <div className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-widest text-muted">
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[11px] uppercase tracking-widest text-muted">
+        <span className="text-accent">{TYPE_META[post.type].label}</span>
+        <span className="h-1 w-1 rounded-full bg-border-strong" />
         <FormattedDate iso={post.date} />
         <span className="h-1 w-1 rounded-full bg-border-strong" />
         <span>{post.readMinutes} min</span>
@@ -56,7 +58,7 @@ function BlogCard({ post }: { post: PostMeta }) {
       <p className="flex-1 text-sm leading-relaxed text-muted">{post.summary}</p>
 
       <div className="flex items-center justify-between pt-2">
-        <Pill>{post.category}</Pill>
+        <Pill>{postChipLabel(post)}</Pill>
         <span className="font-mono text-xs uppercase tracking-widest text-muted transition-colors group-hover:text-accent">
           Read →
         </span>

@@ -1,5 +1,44 @@
 import type { CSSProperties, ReactNode } from "react";
+import type { IconType } from "react-icons";
+import { FaApple, FaJava, FaRegCreditCard } from "react-icons/fa";
+import {
+  SiAndroid,
+  SiAntdesign,
+  SiBitbucket,
+  SiDart,
+  SiExpress,
+  SiFirebase,
+  SiFlutter,
+  SiGithubactions,
+  SiGoogleplay,
+  SiJavascript,
+  SiMongodb,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiPostgresql,
+  SiReact,
+  SiRedux,
+  SiTailwindcss,
+  SiUbuntu,
+  SiVite,
+} from "react-icons/si";
 import { LegendDot, Pill, Section, SectionHeading } from "./ui";
+
+const NODE_ICON: Record<string, IconType> = {
+  java: FaJava,
+  js: SiJavascript,
+  dart: SiDart,
+  flutter: SiFlutter,
+  react: SiReact,
+  vite: SiVite,
+  next: SiNextdotjs,
+  node: SiNodedotjs,
+  express: SiExpress,
+  firebase: SiFirebase,
+  pg: SiPostgresql,
+  mongo: SiMongodb,
+  ubuntu: SiUbuntu,
+};
 
 type Group = "root" | "mobile" | "web" | "backend" | "data" | "infra";
 type Node = { id: string; label: string; x: number; y: number; group: Group };
@@ -65,12 +104,21 @@ function pathD(A: Pt, B: Pt, curve?: { dx?: number; dy?: number }): string {
   return `M ${A.x} ${A.y} Q ${mx} ${my} ${B.x} ${B.y}`;
 }
 
-const DEPLOY_TARGETS = [
-  "Google Play Store",
-  "Apple App Store",
-  "In-app Subscriptions",
-  "VPS (Ubuntu) + domain setup",
+const DEPLOY_TARGETS: Array<{ label: string; icon: IconType }> = [
+  { label: "Google Play Store", icon: SiGoogleplay },
+  { label: "Apple App Store", icon: FaApple },
+  { label: "In-app Subscriptions", icon: FaRegCreditCard },
+  { label: "VPS (Ubuntu) + domain setup", icon: SiUbuntu },
 ];
+
+const PILL_ICONS: Record<string, IconType> = {
+  "RTK Query": SiRedux,
+  "Tailwind CSS": SiTailwindcss,
+  "Ant Design": SiAntdesign,
+  "GitHub Actions": SiGithubactions,
+  "Bitbucket Pipeline": SiBitbucket,
+  "Java (Android)": SiAndroid,
+};
 
 export function TechStack() {
   return (
@@ -95,11 +143,11 @@ export function TechStack() {
         </div>
       </div>
 
-      <div className="scroll-reveal relative w-full overflow-hidden rounded-sm border border-border bg-surface/30">
+      <div className="scroll-reveal relative w-full overflow-x-auto rounded-sm border border-border bg-surface/30">
         <svg
           viewBox="0 0 1400 740"
           xmlns="http://www.w3.org/2000/svg"
-          className="block h-auto w-full"
+          className="block h-auto w-full min-w-[1100px] md:min-w-0"
           aria-label="Tech stack graph rooted in Java and JavaScript"
         >
           {EDGES.map((e, i) => {
@@ -110,7 +158,7 @@ export function TechStack() {
                 key={`eb-${i}`}
                 d={pathD(A, B, e.curve)}
                 fill="none"
-                stroke="rgba(255,255,255,0.08)"
+                stroke="var(--trace-base-stroke)"
                 strokeWidth={1}
               />
             );
@@ -133,35 +181,68 @@ export function TechStack() {
 
           {NODES.map((n) => {
             const isRoot = n.group === "root";
+            const Icon = NODE_ICON[n.id];
+            const r = isRoot ? 26 : 20;
+            const iconSize = isRoot ? 30 : 24;
             return (
               <g key={n.id}>
                 {isRoot && (
-                  <circle cx={n.x} cy={n.y} r={20} fill="none" stroke="var(--accent-soft)" strokeWidth={0.75} />
+                  <circle
+                    cx={n.x}
+                    cy={n.y}
+                    r={r + 12}
+                    fill="none"
+                    stroke="var(--accent-soft)"
+                    strokeWidth={0.75}
+                  />
                 )}
                 <circle
                   cx={n.x}
                   cy={n.y}
-                  r={isRoot ? 11 : 8}
+                  r={r}
                   fill="var(--bg)"
-                  stroke={isRoot ? "var(--accent)" : "rgba(255,255,255,0.9)"}
+                  stroke={isRoot ? "var(--accent)" : "var(--node-stroke-strong)"}
                   strokeWidth={isRoot ? 1.5 : 1.25}
                 />
-                <circle cx={n.x} cy={n.y} r={isRoot ? 3.5 : 2.75} fill="var(--accent)" />
+                {Icon && (
+                  <foreignObject
+                    x={n.x - iconSize / 2}
+                    y={n.y - iconSize / 2}
+                    width={iconSize}
+                    height={iconSize}
+                  >
+                    <div
+                      style={{
+                        width: iconSize,
+                        height: iconSize,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        color: isRoot ? "var(--accent)" : "var(--text)",
+                      }}
+                    >
+                      <Icon size={iconSize - 4} />
+                    </div>
+                  </foreignObject>
+                )}
                 <text
-                  x={n.x + (isRoot ? 20 : 16)}
-                  y={n.y + 5}
-                  fill={isRoot ? "var(--text)" : "rgba(232,232,232,0.9)"}
+                  x={n.x}
+                  y={n.y + r + 22}
+                  textAnchor="middle"
+                  fill="var(--text)"
                   fontFamily="var(--font-geist-mono), ui-monospace, monospace"
-                  fontSize={isRoot ? 18 : 15}
-                  letterSpacing={0.8}
+                  fontSize={isRoot ? 17 : 14}
+                  fontWeight={isRoot ? 500 : 400}
+                  letterSpacing={0.6}
                 >
                   {n.label}
                 </text>
                 {isRoot && (
                   <text
-                    x={n.x + 20}
-                    y={n.y + 24}
-                    fill="rgba(136,136,136,0.9)"
+                    x={n.x}
+                    y={n.y + r + 40}
+                    textAnchor="middle"
+                    fill="var(--muted)"
                     fontFamily="var(--font-geist-mono), ui-monospace, monospace"
                     fontSize={10}
                     letterSpacing={2}
@@ -175,16 +256,23 @@ export function TechStack() {
         </svg>
       </div>
 
-      <div className="scroll-reveal mt-10 grid grid-cols-1 gap-6 border-t border-border pt-10 sm:grid-cols-2 md:grid-cols-4">
+      <div className="scroll-reveal mt-14 grid grid-cols-1 gap-10 border-t border-border pt-14 sm:grid-cols-2 md:grid-cols-4">
         <div>
           <MetaLabel>Ships to</MetaLabel>
-          <ul className="mt-3 space-y-1 font-mono text-sm text-foreground">
-            {DEPLOY_TARGETS.map((t) => (
-              <li key={t} className="flex items-center gap-2">
-                <span className="h-1 w-1 rounded-full bg-accent" />
-                {t}
-              </li>
-            ))}
+          <ul className="mt-5 space-y-3 font-mono text-base text-foreground">
+            {DEPLOY_TARGETS.map((t) => {
+              const Icon = t.icon;
+              return (
+                <li key={t.label} className="flex items-center gap-3">
+                  <Icon
+                    size={18}
+                    className="shrink-0 text-accent"
+                    aria-hidden
+                  />
+                  {t.label}
+                </li>
+              );
+            })}
           </ul>
         </div>
 
@@ -193,7 +281,7 @@ export function TechStack() {
         <StatBlock k="Backend" v="Node.js + Express · Postgres · MongoDB · Firebase · MVC" />
       </div>
 
-      <div className="scroll-reveal mt-10 grid grid-cols-2 gap-6 border-t border-border pt-10 md:grid-cols-4">
+      <div className="scroll-reveal mt-14 grid grid-cols-1 gap-10 border-t border-border pt-14 sm:grid-cols-2 md:grid-cols-4">
         <PillGroup k="State" items={["GetX", "Bloc", "Zustand", "RTK Query"]} />
         <PillGroup k="UI" items={["Tailwind CSS", "Shadcn", "Ant Design"]} />
         <PillGroup k="CI / CD" items={["GitHub Actions", "Bitbucket Pipeline"]} />
@@ -205,7 +293,7 @@ export function TechStack() {
 
 function MetaLabel({ children }: { children: ReactNode }) {
   return (
-    <div className="font-mono text-[11px] uppercase tracking-widest text-muted">
+    <div className="font-mono text-sm uppercase tracking-widest text-muted">
       {children}
     </div>
   );
@@ -215,7 +303,9 @@ function StatBlock({ k, v }: { k: string; v: string }) {
   return (
     <div>
       <MetaLabel>{k}</MetaLabel>
-      <p className="mt-3 text-sm leading-relaxed text-foreground">{v}</p>
+      <p className="mt-5 text-base leading-relaxed text-foreground sm:text-lg">
+        {v}
+      </p>
     </div>
   );
 }
@@ -224,15 +314,25 @@ function PillGroup({ k, items }: { k: string; items: string[] }) {
   return (
     <div>
       <MetaLabel>{k}</MetaLabel>
-      <div className="mt-3 flex flex-wrap gap-2">
-        {items.map((item) => (
-          <span
-            key={item}
-            className="rounded-full border border-border px-3 py-1 font-mono text-[11px] uppercase tracking-widest text-foreground"
-          >
-            {item}
-          </span>
-        ))}
+      <div className="mt-5 flex flex-wrap gap-2">
+        {items.map((item) => {
+          const Icon = PILL_ICONS[item];
+          return (
+            <span
+              key={item}
+              className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-1.5 font-mono text-xs uppercase tracking-widest text-foreground sm:text-sm"
+            >
+              {Icon && (
+                <Icon
+                  size={14}
+                  className="shrink-0 text-accent"
+                  aria-hidden
+                />
+              )}
+              {item}
+            </span>
+          );
+        })}
       </div>
     </div>
   );

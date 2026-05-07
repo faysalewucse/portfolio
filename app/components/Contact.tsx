@@ -1,9 +1,20 @@
+import type { ComponentType } from "react";
+import { FaRegEnvelope } from "react-icons/fa";
+import { GithubIcon, LinkedinIcon } from "./icons";
 import { Section } from "./ui";
 
-const LINKS: Array<{ label: string; href: string }> = [
-  { label: "email", href: "mailto:faysal.ewucse@gmail.com" },
-  { label: "github", href: "https://github.com/faysalewucse" },
-  { label: "linkedin", href: "https://www.linkedin.com/in/faysal-ahmed-me" },
+const LINKS: Array<{
+  label: string;
+  href: string;
+  Icon: ComponentType<{ size?: number; className?: string }>;
+}> = [
+  { label: "email", href: "mailto:faysal.ewucse@gmail.com", Icon: FaRegEnvelope },
+  { label: "github", href: "https://github.com/faysalewucse", Icon: GithubIcon },
+  {
+    label: "linkedin",
+    href: "https://www.linkedin.com/in/faysal-ahmed-me",
+    Icon: LinkedinIcon,
+  },
 ];
 
 const STATUS: Array<[string, string]> = [
@@ -30,20 +41,29 @@ export function Contact() {
           </p>
 
           <ul className="mt-12 flex flex-col divide-y divide-border border-y border-border">
-            {LINKS.map((l) => (
-              <li key={l.label}>
-                <a
-                  href={l.href}
-                  className="group flex items-center justify-between py-5 font-mono text-sm uppercase tracking-widest text-muted transition-colors hover:text-accent"
-                >
-                  <span>{l.label}</span>
-                  <span className="inline-flex items-center gap-2">
-                    <span className="h-px w-8 bg-border-strong transition-all group-hover:w-16 group-hover:bg-accent" />
-                    <span>→</span>
-                  </span>
-                </a>
-              </li>
-            ))}
+            {LINKS.map((l) => {
+              const external = l.href.startsWith("http");
+              const { Icon } = l;
+              return (
+                <li key={l.label}>
+                  <a
+                    href={l.href}
+                    target={external ? "_blank" : undefined}
+                    rel={external ? "noopener noreferrer" : undefined}
+                    className="group flex items-center justify-between py-5 font-mono text-sm uppercase tracking-widest text-muted transition-colors hover:text-accent"
+                  >
+                    <span className="inline-flex items-center gap-3">
+                      <Icon size={18} className="text-accent" />
+                      {l.label}
+                    </span>
+                    <span className="inline-flex items-center gap-2">
+                      <span className="h-px w-8 bg-border-strong transition-all group-hover:w-16 group-hover:bg-accent" />
+                      <span>→</span>
+                    </span>
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         </div>
 
@@ -59,9 +79,36 @@ export function Contact() {
       </div>
 
       <footer className="mt-40 border-t border-border">
-        <div className="section-inner flex items-center justify-between py-8 font-mono text-[11px] uppercase tracking-widest text-muted">
+        <div className="section-inner flex flex-wrap items-center justify-between gap-6 py-8 font-mono text-[11px] uppercase tracking-widest text-muted">
           <span>© 2026 Faysal Ahmed</span>
-          <span>Built in Next.js</span>
+
+          <div className="flex items-center gap-5">
+            <a
+              href="mailto:faysal.ewucse@gmail.com"
+              className="transition-colors hover:text-accent"
+            >
+              faysal.ewucse@gmail.com
+            </a>
+            <span aria-hidden className="h-3 w-px bg-border-strong" />
+            <a
+              href="https://github.com/faysalewucse"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              className="text-muted transition-colors hover:text-accent"
+            >
+              <GithubIcon />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/faysal-ahmed-me"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="text-muted transition-colors hover:text-accent"
+            >
+              <LinkedinIcon />
+            </a>
+          </div>
         </div>
       </footer>
     </Section>

@@ -60,7 +60,7 @@ export function Pill({ children }: { children: ReactNode }) {
 
 export function StatusBadge({ children }: { children: ReactNode }) {
   return (
-    <span className="inline-flex items-center gap-2 rounded-full border border-border bg-black/40 px-3 py-1 font-mono text-[11px] uppercase tracking-widest text-muted backdrop-blur">
+    <span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/70 px-3 py-1 font-mono text-[11px] uppercase tracking-widest text-muted backdrop-blur">
       <span className="status-dot inline-block h-1.5 w-1.5 rounded-full bg-accent" />
       {children}
     </span>

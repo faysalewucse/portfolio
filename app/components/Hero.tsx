@@ -10,7 +10,7 @@ export function Hero() {
   return (
     <section className="relative flex min-h-screen w-full flex-col overflow-hidden">
       <CircuitTraces className="pointer-events-none absolute inset-0 h-full w-full opacity-70 [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_85%)]" />
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_30%_30%,rgba(0,212,255,0.06),transparent_60%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_30%_30%,var(--hero-glow),transparent_60%)]" />
 
       <div className="relative z-10 flex flex-1 items-center">
         <div className="mx-auto w-full max-w-[1200px] px-6 sm:px-10">
@@ -54,7 +54,7 @@ export function Hero() {
           >
             <a
               href="#projects"
-              className="group inline-flex items-center gap-2 border border-border-strong bg-black/30 px-5 py-3 font-mono text-xs uppercase tracking-widest text-foreground backdrop-blur transition-colors hover:border-accent hover:text-accent"
+              className="group inline-flex items-center gap-2 border border-border-strong bg-surface/70 px-5 py-3 font-mono text-xs uppercase tracking-widest text-foreground backdrop-blur transition-colors hover:border-accent hover:text-accent"
             >
               View work
               <span className="transition-transform group-hover:translate-x-0.5">→</span>
@@ -112,7 +112,7 @@ function IconLink({
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className="group inline-flex h-10 w-10 items-center justify-center border border-border-strong bg-black/30 text-muted backdrop-blur transition-colors hover:border-accent hover:text-accent"
+      className="group inline-flex h-10 w-10 items-center justify-center border border-border-strong bg-surface/70 text-muted backdrop-blur transition-colors hover:border-accent hover:text-accent"
     >
       {children}
     </a>

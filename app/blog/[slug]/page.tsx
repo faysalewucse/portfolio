@@ -2,7 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Pill } from "../../components/ui";
-import { POSTS, PostBody, postBySlug } from "../posts";
+import {
+  POSTS,
+  PostBody,
+  TYPE_META,
+  categoryLabel,
+  postBySlug,
+  subcategoryLabel,
+} from "../posts";
 
 export function generateStaticParams() {
   return POSTS.map((p) => ({ slug: p.slug }));
@@ -52,15 +59,15 @@ export default async function PostPage({
       <div className="grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,1fr)_280px] lg:gap-16">
         <div className="min-w-0">
           <header>
-            <div className="flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-[11px] uppercase tracking-widest text-muted">
+            <Breadcrumb post={meta} />
+
+            <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-[11px] uppercase tracking-widest text-muted">
               <FormattedDate iso={meta.date} />
               <Dot />
               <span>{meta.readMinutes} min read</span>
-              <Dot />
-              <Pill>{meta.category}</Pill>
             </div>
 
-            <h1 className="mt-8 max-w-3xl font-mono text-4xl font-medium leading-[1.1] tracking-tight text-foreground sm:text-5xl md:text-6xl">
+            <h1 className="mt-8 max-w-3xl font-mono text-3xl font-medium leading-[1.15] tracking-tight text-foreground sm:text-4xl md:text-5xl">
               {meta.title}
             </h1>
 
@@ -93,19 +100,28 @@ export default async function PostPage({
           </nav>
         </div>
 
-        <MoreWritingSidebar currentSlug={slug} />
+        <MoreWritingSidebar currentSlug={slug} currentType={meta.type} />
       </div>
     </article>
   );
 }
 
-function MoreWritingSidebar({ currentSlug }: { currentSlug: string }) {
+function MoreWritingSidebar({
+  currentSlug,
+  currentType,
+}: {
+  currentSlug: string;
+  currentType: import("../posts").PostType;
+}) {
+  const sameTypePosts = POSTS.filter((p) => p.type === currentType);
+  const typeLabel = TYPE_META[currentType].label;
+
   return (
     <aside className="lg:sticky lg:top-24 lg:self-start">
-      <div className="border border-border bg-surface/40 p-6">
+      <div className="border border-border bg-surface p-6">
         <div className="mb-6 flex items-center justify-between">
           <span className="font-mono text-[11px] uppercase tracking-widest text-muted">
-            More writing
+            More <span className="text-accent">{typeLabel}</span> writing
           </span>
           <Link
             href="/blog"
@@ -115,7 +131,7 @@ function MoreWritingSidebar({ currentSlug }: { currentSlug: string }) {
           </Link>
         </div>
         <ul className="flex flex-col divide-y divide-border">
-          {POSTS.map((post, i) => {
+          {sameTypePosts.map((post, i) => {
             const isCurrent = post.slug === currentSlug;
             const n = String(i + 1).padStart(2, "0");
             const inner = (
@@ -124,7 +140,7 @@ function MoreWritingSidebar({ currentSlug }: { currentSlug: string }) {
                   {n} · {post.category}
                 </span>
                 <span
-                  className={`mt-2 block font-mono text-sm leading-snug tracking-tight transition-colors ${
+                  className={`mt-2 block font-mono text-sm font-medium leading-snug tracking-tight transition-colors ${
                     isCurrent
                       ? "text-accent"
                       : "text-foreground group-hover:text-accent"
@@ -184,6 +200,25 @@ function PostNavCard({
 
 function Dot() {
   return <span className="h-1 w-1 rounded-full bg-border-strong" />;
+}
+
+function Breadcrumb({ post }: { post: import("../posts").PostMeta }) {
+  const typeText = TYPE_META[post.type].label;
+  const catText = categoryLabel(post.type, post.category);
+  const subText = subcategoryLabel(post.type, post.category, post.subcategory);
+  const parts = subText ? [typeText, catText, subText] : [typeText, catText];
+  return (
+    <div className="flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-[11px] uppercase tracking-widest text-muted">
+      {parts.map((part, i) => (
+        <span key={i} className="flex items-center gap-2">
+          {i > 0 && <span aria-hidden>›</span>}
+          <span className={i === parts.length - 1 ? "text-accent" : ""}>
+            {part}
+          </span>
+        </span>
+      ))}
+    </div>
+  );
 }
 
 function FormattedDate({ iso }: { iso: string }) {

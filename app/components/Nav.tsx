@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ThemeToggle } from "./ThemeToggle";
 
 const LINKS: Array<{ label: string; href: string }> = [
   { label: "About", href: "#about" },
@@ -33,7 +34,10 @@ export function Nav() {
           ))}
         </div>
 
-        <span className="hidden text-muted sm:inline">v2026.04</span>
+        <div className="flex items-center gap-4">
+          <span className="hidden text-muted sm:inline">v2026.04</span>
+          <ThemeToggle />
+        </div>
       </div>
     </nav>
   );

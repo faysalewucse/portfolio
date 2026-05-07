@@ -1,13 +1,103 @@
 import type { ReactNode } from "react";
 
+export type PostType = "tech" | "islam";
+
 export type PostMeta = {
   slug: string;
   title: string;
   summary: string;
   date: string;
   readMinutes: number;
+  type: PostType;
   category: string;
+  subcategory?: string;
 };
+
+export type SubcategoryDef = { slug: string; label: string };
+export type CategoryDef = {
+  slug: string;
+  label: string;
+  description?: string;
+  subcategories?: SubcategoryDef[];
+};
+export type TypeDef = {
+  slug: PostType;
+  label: string;
+  description: string;
+  categories: CategoryDef[];
+};
+
+export const TAXONOMY: TypeDef[] = [
+  {
+    slug: "tech",
+    label: "Tech",
+    description: "Building, shipping, and deploying.",
+    categories: [
+      {
+        slug: "app",
+        label: "App",
+        description: "Native and cross-platform mobile.",
+        subcategories: [
+          { slug: "android", label: "Android" },
+          { slug: "ios", label: "iOS" },
+        ],
+      },
+      {
+        slug: "web",
+        label: "Web",
+        description: "Frontend and backend on the web.",
+      },
+    ],
+  },
+  {
+    slug: "islam",
+    label: "Islam",
+    description: "Faith, knowledge, and reflection.",
+    categories: [],
+  },
+];
+
+export const TYPE_META: Record<PostType, { label: string; description: string }> =
+  Object.fromEntries(
+    TAXONOMY.map((t) => [t.slug, { label: t.label, description: t.description }]),
+  ) as Record<PostType, { label: string; description: string }>;
+
+export const TYPE_ORDER: PostType[] = TAXONOMY.map((t) => t.slug);
+
+export function getTypeDef(type: PostType): TypeDef | undefined {
+  return TAXONOMY.find((t) => t.slug === type);
+}
+
+export function getCategoryDef(
+  type: PostType,
+  categorySlug: string,
+): CategoryDef | undefined {
+  return getTypeDef(type)?.categories.find((c) => c.slug === categorySlug);
+}
+
+export function getSubcategoryDef(
+  type: PostType,
+  categorySlug: string,
+  subSlug?: string,
+): SubcategoryDef | undefined {
+  if (!subSlug) return undefined;
+  return getCategoryDef(type, categorySlug)?.subcategories?.find(
+    (s) => s.slug === subSlug,
+  );
+}
+
+export function categoryLabel(type: PostType, categorySlug: string): string {
+  return getCategoryDef(type, categorySlug)?.label ?? categorySlug;
+}
+
+export function subcategoryLabel(
+  type: PostType,
+  categorySlug: string,
+  subSlug?: string,
+): string | null {
+  if (!subSlug) return null;
+  return getSubcategoryDef(type, categorySlug, subSlug)?.label ?? subSlug;
+}
 
 export const POSTS: PostMeta[] = [
   {
@@ -17,7 +107,9 @@ export const POSTS: PostMeta[] = [
       "What you need, what each account type is good for, and where the verification surprises hide.",
     date: "2026-04-15",
     readMinutes: 6,
-    category: "Android",
+    type: "tech",
+    category: "app",
+    subcategory: "android",
   },
   {
     slug: "publish-android-app",
@@ -26,7 +118,9 @@ export const POSTS: PostMeta[] = [
       "From a signed release bundle to a live listing — the steps that always show up, in the order they show up.",
     date: "2026-04-22",
     readMinutes: 9,
-    category: "Android",
+    type: "tech",
+    category: "app",
+    subcategory: "android",
   },
   {
     slug: "create-apple-developer-account",
@@ -35,7 +129,9 @@ export const POSTS: PostMeta[] = [
       "$99/year, two-factor everything, D-U-N-S for orgs, and the human-review call you should plan for.",
     date: "2026-04-29",
     readMinutes: 6,
-    category: "iOS",
+    type: "tech",
+    category: "app",
+    subcategory: "ios",
   },
   {
     slug: "publish-ios-app",
@@ -44,9 +140,28 @@ export const POSTS: PostMeta[] = [
       "Bundle IDs, archives, App Store Connect metadata, privacy labels, and what gets rejected the most.",
     date: "2026-05-04",
     readMinutes: 10,
-    category: "iOS",
+    type: "tech",
+    category: "app",
+    subcategory: "ios",
   },
 ];
+
+export function postsByType(type: PostType): PostMeta[] {
+  return POSTS.filter((p) => p.type === type);
+}
+
+export function postsByCategory(
+  type: PostType,
+  categorySlug: string,
+): PostMeta[] {
+  return POSTS.filter((p) => p.type === type && p.category === categorySlug);
+}
+
+/** Display label for a post — most-specific label available. */
+export function postChipLabel(post: PostMeta): string {
+  const sub = subcategoryLabel(post.type, post.category, post.subcategory);
+  return sub ?? categoryLabel(post.type, post.category);
+}
 
 export function postBySlug(slug: string): PostMeta | undefined {
   return POSTS.find((p) => p.slug === slug);
@@ -473,9 +588,15 @@ function PublishIosPost() {
       <p>
         Bundle IDs are global and immutable per app. Use reverse-DNS:{" "}
         <code>com.yourcompany.appname</code>. In Apple Developer →{" "}
-        <strong>Identifiers</strong>, register the ID and enable any
-        capabilities you&apos;ll need (Push Notifications, Sign in with Apple,
-        In-App Purchase, App Groups, etc.).
+        <a
+          href="https://developer.apple.com/account/resources/identifiers/list"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Identifiers
+        </a>
+        , register the ID and enable any capabilities you&apos;ll need (Push
+        Notifications, Sign in with Apple, In-App Purchase, App Groups, etc.).
       </p>
 
       <h2>2 — Set up signing</h2>
