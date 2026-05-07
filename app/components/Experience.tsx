@@ -39,7 +39,7 @@ const ENTRIES: Entry[] = [
 
 export function Experience() {
   return (
-    <Section id="experience" n="05" label="Experience">
+    <Section id="experience" n="06" label="Experience">
       <div className="mb-16 flex items-end justify-between gap-8 flex-wrap">
         <SectionHeading>A line you can trace.</SectionHeading>
         <span className="font-mono text-xs uppercase tracking-widest text-muted">

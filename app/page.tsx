@@ -1,5 +1,6 @@
 import { About } from "./components/About";
 import { Blog } from "./components/Blog";
+import { Competitive } from "./components/Competitive";
 import { Contact } from "./components/Contact";
 import { Experience } from "./components/Experience";
 import { Hero } from "./components/Hero";
@@ -16,6 +17,7 @@ export default function Home() {
         <About />
         <TechStack />
         <Projects />
+        <Competitive />
         <Experience />
         <Blog />
         <Contact />

@@ -5,6 +5,7 @@ const LINKS: Array<{ label: string; href: string }> = [
   { label: "About", href: "#about" },
   { label: "Stack", href: "#stack" },
   { label: "Work", href: "#projects" },
+  { label: "CP", href: "#competitive" },
   { label: "Experience", href: "#experience" },
   { label: "Writing", href: "#blog" },
   { label: "Contact", href: "#contact" },

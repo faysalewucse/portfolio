@@ -23,7 +23,7 @@ export function Section({
   );
 }
 
-export const TOTAL_SECTIONS = "07";
+export const TOTAL_SECTIONS = "08";
 
 export function SectionLabel({ n, label }: { n: string; label: string }) {
   return (
