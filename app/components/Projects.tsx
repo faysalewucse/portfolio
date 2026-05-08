@@ -122,14 +122,19 @@ const GROUPS: Group[] = [
       {
         n: "03",
         name: "Palooi — Ecommerce",
-        tag: "Ecommerce · Mobile",
+        tag: "Ecommerce · App Store",
         year: "2023",
         hook: "Consumer ecommerce app with full authentication, OTP-verified profile updates, image upload, and a pixel-perfect UI built on component-first architecture.",
         stack: ["Flutter", "GetX", "Auth + OTP", "Firebase"],
-        links: [],
+        links: [
+          {
+            label: "App Store ↗",
+            href: "https://apps.apple.com/us/app/palooi/id6503657502",
+          },
+        ],
         caseStudy: {
           summary:
-            "Consumer ecommerce mobile app. Not currently published to a public store, so the highlights below stand in for a listing.",
+            "Consumer ecommerce mobile app on the App Store.",
           highlights: [
             "Full user authentication and the complete consumer-facing journey — browse, account, checkout.",
             "Profile updates with OTP verification and image upload.",
