@@ -4,16 +4,16 @@ import { GithubIcon, LinkedinIcon } from "./icons";
 import { StatusBadge } from "./ui";
 
 const REVEAL = (delay: string): CSSProperties =>
-  ({ "--reveal-delay": delay } as CSSProperties);
+  ({ "--reveal-delay": delay }) as CSSProperties;
 
 export function Hero() {
   return (
     <section className="relative flex min-h-screen w-full flex-col overflow-hidden">
-      <CircuitTraces className="pointer-events-none absolute inset-0 h-full w-full opacity-70 [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_85%)]" />
+      <CircuitTraces className="pointer-events-none absolute inset-0 h-full w-full opacity-70 mask-[radial-gradient(ellipse_at_center,black_40%,transparent_85%)]" />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_30%_30%,var(--hero-glow),transparent_60%)]" />
 
       <div className="relative z-10 flex flex-1 items-center">
-        <div className="mx-auto w-full max-w-[1200px] px-6 sm:px-10">
+        <div className="mx-auto w-full max-w-300 px-6 sm:px-10">
           <div className="reveal mb-8 inline-block" style={REVEAL("0.1s")}>
             <StatusBadge>Available for work</StatusBadge>
           </div>
@@ -57,7 +57,9 @@ export function Hero() {
               className="group inline-flex items-center gap-2 border border-border-strong bg-surface/70 px-5 py-3 font-mono text-xs uppercase tracking-widest text-foreground backdrop-blur transition-colors hover:border-accent hover:text-accent"
             >
               View work
-              <span className="transition-transform group-hover:translate-x-0.5">→</span>
+              <span className="transition-transform group-hover:translate-x-0.5">
+                →
+              </span>
             </a>
             <a
               href="mailto:faysal.ewucse@gmail.com"
@@ -80,7 +82,7 @@ export function Hero() {
       </div>
 
       <div
-        className="reveal relative z-10 mx-auto flex w-full max-w-[1200px] items-end justify-between px-6 pb-10 font-mono text-[11px] uppercase tracking-widest text-muted sm:px-10"
+        className="reveal relative z-10 mx-auto flex w-full max-w-300 items-end justify-between px-6 pb-10 font-mono text-[11px] uppercase tracking-widest text-muted sm:px-10"
         style={REVEAL("0.85s")}
       >
         <span className="flex items-center gap-2">
