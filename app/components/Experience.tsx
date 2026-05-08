@@ -3,7 +3,7 @@ import { NerddevsLink, Section, SectionHeading, ZaagLink } from "./ui";
 
 const ENTRIES: TimelineEntry[] = [
   {
-    period: "Jan 2025 — Present",
+    period: "Jan 2025 — Present · 1y 4m",
     role: "Mobile Application Developer",
     org: <NerddevsLink />,
     notes: [
@@ -12,16 +12,16 @@ const ENTRIES: TimelineEntry[] = [
     ],
   },
   {
-    period: "Sept 2023 — Dec 2024",
+    period: "Sept 2023 — Dec 2024 · 1y 4m",
     role: "Jr. Mobile Application Developer",
     org: <ZaagLink />,
     notes: [
       "Flutter apps across international, local, and Government projects.",
-      "Shipped: TCB Dealer (Gov), Zenresto POS, Ruqyah & Ayat, Palooi, Period Pulse.",
+      "Shipped: TCB Dealer (Gov), Zenresto POS, Palooi, Period Pulse.",
     ],
   },
   {
-    period: "Aug 2023 — Apr 2024",
+    period: "Aug 2023 — Apr 2024 · 9m",
     role: "Full-Stack Developer",
     org: (
       <>
@@ -41,7 +41,8 @@ export function Experience() {
       <div className="mb-16 flex items-end justify-between gap-8 flex-wrap">
         <SectionHeading>A line you can trace.</SectionHeading>
         <span className="font-mono text-xs uppercase tracking-widest text-muted">
-          {ENTRIES.length} stops
+          {ENTRIES.length} stops ·{" "}
+          <span className="text-foreground">3.5+ yrs</span> total
         </span>
       </div>
       <Timeline entries={ENTRIES} />
