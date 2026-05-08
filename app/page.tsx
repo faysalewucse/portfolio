@@ -2,6 +2,7 @@ import { About } from "./components/About";
 import { Blog } from "./components/Blog";
 import { Competitive } from "./components/Competitive";
 import { Contact } from "./components/Contact";
+import { Education } from "./components/Education";
 import { Experience } from "./components/Experience";
 import { Hero } from "./components/Hero";
 import { Nav } from "./components/Nav";
@@ -19,6 +20,7 @@ export default function Home() {
         <Projects />
         <Competitive />
         <Experience />
+        <Education />
         <Blog />
         <Contact />
       </main>

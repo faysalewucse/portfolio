@@ -89,7 +89,7 @@ export function Hero() {
           <span className="inline-block h-px w-8 bg-border-strong" />
           Scroll
         </span>
-        <span>[ 01 / 07 ] hero</span>
+        <span>[ 01 / 09 ] hero</span>
       </div>
     </section>
   );

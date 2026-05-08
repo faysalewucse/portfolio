@@ -8,7 +8,7 @@ const HOMEPAGE_LIMIT = 4;
 export function Blog() {
   const visible = POSTS.slice(0, HOMEPAGE_LIMIT);
   return (
-    <Section id="blog" n="07" label="Writing">
+    <Section id="blog" n="08" label="Writing">
       <div className="mb-16 flex items-end justify-between gap-8 flex-wrap">
         <SectionHeading>Notes on shipping.</SectionHeading>
         <span className="font-mono text-xs uppercase tracking-widest text-muted">

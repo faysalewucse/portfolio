@@ -26,7 +26,7 @@ const STATUS: Array<[string, string]> = [
 
 export function Contact() {
   return (
-    <Section id="contact" n="08" label="Contact">
+    <Section id="contact" n="09" label="Contact">
       <div className="grid grid-cols-1 gap-16 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)]">
         <div className="scroll-reveal">
           <h2 className="font-mono text-4xl font-medium leading-[1.05] tracking-tight text-foreground sm:text-6xl">
