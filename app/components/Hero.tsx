@@ -45,7 +45,7 @@ export function Hero() {
               <span className="text-foreground">Nerddevs Limited</span>
             </span>
             <Dot />
-            <span>Demra, Dhaka</span>
+            <span>Dhaka, Bangladesh</span>
           </div>
 
           <div
@@ -61,7 +61,7 @@ export function Hero() {
             </a>
             <a
               href="mailto:faysal.ewucse@gmail.com"
-              className="font-mono text-xs uppercase tracking-widest text-muted transition-colors hover:text-foreground"
+              className="font-mono text-xs normal-case tracking-widest text-muted transition-colors hover:text-foreground"
             >
               faysal.ewucse@gmail.com
             </a>

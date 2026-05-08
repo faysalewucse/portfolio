@@ -1,9 +1,10 @@
-import { Section, SectionHeading } from "./ui";
+import type { ReactNode } from "react";
+import { NerddevsLink, Section, SectionHeading, ZaagLink } from "./ui";
 
 type Entry = {
   period: string;
   role: string;
-  org: string;
+  org: ReactNode;
   notes: string[];
 };
 
@@ -11,7 +12,7 @@ const ENTRIES: Entry[] = [
   {
     period: "Jan 2025 — Present",
     role: "Mobile Application Developer",
-    org: "Nerddevs Limited",
+    org: <NerddevsLink />,
     notes: [
       "Contributing to in-house AI products on the mobile side.",
       "Play Store & App Store deployments, in-app purchases, in-app review flows.",
@@ -20,7 +21,7 @@ const ENTRIES: Entry[] = [
   {
     period: "Sept 2023 — Dec 2024",
     role: "Jr. Mobile Application Developer",
-    org: "Zaag Systems Ltd.",
+    org: <ZaagLink />,
     notes: [
       "Flutter apps across international, local, and Government projects.",
       "Shipped: TCB Dealer (Gov), Zenresto POS, Ruqyah & Ayat, Palooi, Period Pulse.",
@@ -29,11 +30,39 @@ const ENTRIES: Entry[] = [
   {
     period: "Aug 2023 — Apr 2024",
     role: "Full-Stack Developer",
-    org: "ArtifConnect · concurrent with Zaag",
+    org: (
+      <>
+        ArtifConnect · concurrent with <ZaagLink>Zaag</ZaagLink>
+      </>
+    ),
     notes: [
       "Built full-stack web features across frontend and backend.",
       "Worked in parallel with the Zaag mobile role — evenings / weekends.",
     ],
+  },
+  {
+    period: "2019 — Jul 2023",
+    role: "BSc in Computer Science & Engineering",
+    org: "East West University",
+    notes: ["CGPA 3.10."],
+  },
+  {
+    period: "Jan — Oct 2018",
+    role: "Math Teacher",
+    org: "Al Hera Ideal School",
+    notes: ["Bridging year between HSC and university."],
+  },
+  {
+    period: "2017",
+    role: "Higher Secondary Certificate (HSC)",
+    org: "Dr. Mahabubur Rahman Mollah College",
+    notes: ["GPA 5.00."],
+  },
+  {
+    period: "2015",
+    role: "Secondary School Certificate (SSC)",
+    org: "Shamsul Haque Khan School and College",
+    notes: ["GPA 5.00."],
   },
 ];
 

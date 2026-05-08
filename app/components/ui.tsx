@@ -67,6 +67,34 @@ export function StatusBadge({ children }: { children: ReactNode }) {
   );
 }
 
+export function NerddevsLink() {
+  return (
+    <a
+      href="https://nerddevs.com/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="font-medium transition-opacity hover:opacity-80 hover:underline"
+      style={{ color: "#F5811E" }}
+    >
+      Nerddevs Limited
+    </a>
+  );
+}
+
+export function ZaagLink({ children }: { children?: ReactNode }) {
+  return (
+    <a
+      href="https://zaagsys.com/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="font-medium transition-opacity hover:opacity-80 hover:underline"
+      style={{ color: "#3B82F6" }}
+    >
+      {children ?? "Zaag Systems Ltd."}
+    </a>
+  );
+}
+
 export function LegendDot({ children }: { children: ReactNode }) {
   return (
     <span className="inline-flex items-center gap-2">

@@ -1,7 +1,7 @@
 import Image from "next/image";
-import type { CSSProperties } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { CaseStudyButton, type CaseStudyData } from "./CaseStudyButton";
-import { Pill, Section, SectionHeading } from "./ui";
+import { NerddevsLink, Pill, Section, SectionHeading, ZaagLink } from "./ui";
 
 type Project = {
   n: string;
@@ -19,7 +19,7 @@ type Project = {
 
 type Group = {
   id: string;
-  company: string;
+  company: ReactNode;
   subtitle: string;
   period: string;
   projects: Project[];
@@ -28,7 +28,7 @@ type Group = {
 const GROUPS: Group[] = [
   {
     id: "nerddevs",
-    company: "Nerddevs Limited",
+    company: <NerddevsLink />,
     subtitle: "AI · consumer · internal",
     period: "Jan 2025 — Present",
     projects: [
@@ -85,7 +85,7 @@ const GROUPS: Group[] = [
   },
   {
     id: "zaag",
-    company: "Zaag Systems Ltd.",
+    company: <ZaagLink />,
     subtitle: "International · local · government",
     period: "Sept 2023 — Dec 2024",
     projects: [
@@ -94,7 +94,7 @@ const GROUPS: Group[] = [
         name: "TCB Dealer App",
         tag: "Government · Enterprise",
         year: "2024",
-        hook: "Private Trading Corporation of Bangladesh dealer app — beneficiary management, QR-code-driven JSON intake, and product submission. Served 18,000+ customers in its first two months.",
+        hook: "Private Trading Corporation of Bangladesh dealer app — beneficiary management, QR-code-driven JSON intake, and product submission.",
         stack: ["Flutter", "Dart", "QR / JSON", "Gov. Delivery"],
         links: [],
       },
@@ -121,15 +121,6 @@ const GROUPS: Group[] = [
       },
       {
         n: "03",
-        name: "The Kabab King",
-        tag: "Food & Beverage",
-        year: "2024",
-        hook: "Mobile ordering and loyalty experience for a quick-service restaurant brand. [ brief placeholder — tell me the highlight you want lead-line'd ]",
-        stack: ["Flutter", "GetX", "Firebase"],
-        links: [],
-      },
-      {
-        n: "04",
         name: "Palooi — Ecommerce",
         tag: "Ecommerce · Mobile",
         year: "2023",

@@ -85,7 +85,7 @@ export function Contact() {
           <div className="flex items-center gap-5">
             <a
               href="mailto:faysal.ewucse@gmail.com"
-              className="transition-colors hover:text-accent"
+              className="normal-case transition-colors hover:text-accent"
             >
               faysal.ewucse@gmail.com
             </a>
