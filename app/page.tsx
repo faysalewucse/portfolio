@@ -7,7 +7,7 @@ import { Experience } from "./components/Experience";
 import { Hero } from "./components/Hero";
 import { Nav } from "./components/Nav";
 import { Projects } from "./components/Projects";
-import { ShokherSoft } from "./components/ShokherSoft";
+import { ClientWork } from "./components/ClientWork";
 import { TechStack } from "./components/TechStack";
 
 export default function Home() {
@@ -18,7 +18,7 @@ export default function Home() {
         <Hero />
         <About />
         <TechStack />
-        <ShokherSoft />
+        <ClientWork />
         <Projects />
         <Competitive />
         <Experience />

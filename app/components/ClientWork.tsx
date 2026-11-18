@@ -128,7 +128,7 @@ const PROJECTS: AgencyProject[] = [
   {
     name: "Muhaasib",
     category: "Accounting Software",
-    desc: "ShokherSoft's own accounting product — bookkeeping, reports, loans and day-to-day business management made effortless.",
+    desc: "An in-house accounting product — bookkeeping, reports, loans and day-to-day business management made effortless.",
     logo: "/shokhersoft/logos/muhaasib.png",
     links: [{ label: "Website", href: "https://muhaasib.online" }],
     shots: [
@@ -163,32 +163,16 @@ const SHOT_COUNT = PROJECTS.reduce(
   0
 );
 
-export function ShokherSoft() {
+export function ClientWork() {
   return (
-    <Section id="shokhersoft" n="" label="ShokherSoft">
+    <Section id="client-work" n="" label="Client Work">
       <div className="mb-16 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
         <div className="max-w-2xl">
-          <div className="mb-6 h-8 w-auto">
-            <Image
-              src="/shokhersoft/SS_WT.png"
-              alt="ShokherSoft"
-              width={276}
-              height={32}
-              className="shot-on-dark h-8 w-auto"
-            />
-            <Image
-              src="/shokhersoft/SS_BL.png"
-              alt="ShokherSoft"
-              width={276}
-              height={32}
-              className="shot-on-light h-8 w-auto"
-            />
-          </div>
-          <SectionHeading>Products built at my agency.</SectionHeading>
+          <SectionHeading>Products I&apos;ve built for clients.</SectionHeading>
           <p className="mt-5 text-base leading-relaxed text-muted sm:text-lg">
-            I founded ShokherSoft and lead it as CEO. We design and ship
-            websites, mobile apps and admin portals end-to-end for businesses
-            across healthcare, retail, finance and education.
+            Websites, mobile apps and admin portals I designed and shipped
+            end-to-end for businesses across healthcare, retail, finance and
+            education — built with my team at ShokherSoft.
           </p>
         </div>
         <span className="font-mono text-xs uppercase tracking-widest text-muted">
