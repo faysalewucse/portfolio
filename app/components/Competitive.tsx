@@ -82,7 +82,7 @@ export function Competitive() {
               href={p.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative flex h-full flex-col gap-5 overflow-hidden border border-border bg-surface/40 p-6 transition-all duration-500 ease-out hover:-translate-y-1 hover:border-border-strong"
+              className="group relative flex h-full flex-col gap-5 overflow-hidden rounded-2xl border border-border bg-surface/40 p-6 transition-all duration-500 ease-out hover:-translate-y-1 hover:border-border-strong"
             >
               <div className="flex items-start justify-between gap-4">
                 <p.Icon className="h-9 w-9 text-foreground transition-colors group-hover:text-accent" />

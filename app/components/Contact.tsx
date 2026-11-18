@@ -29,7 +29,7 @@ export function Contact() {
     <Section id="contact" n="09" label="Contact">
       <div className="grid grid-cols-1 gap-16 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)]">
         <div className="scroll-reveal">
-          <h2 className="font-mono text-4xl font-medium leading-[1.05] tracking-tight text-foreground sm:text-6xl">
+          <h2 className="text-4xl font-semibold leading-[1.05] tracking-tight text-foreground sm:text-6xl">
             Let&apos;s build
             <br />
             something<span className="text-accent">.</span>
@@ -67,7 +67,7 @@ export function Contact() {
           </ul>
         </div>
 
-        <aside className="scroll-reveal flex flex-col gap-6 self-start border border-border bg-surface/40 p-8 font-mono text-sm">
+        <aside className="scroll-reveal flex flex-col gap-6 self-start rounded-2xl border border-border bg-surface/40 p-8 font-mono text-sm">
           <div className="flex items-center gap-2 text-[11px] uppercase tracking-widest text-muted">
             <span className="status-dot inline-block h-1.5 w-1.5 rounded-full bg-accent" />
             Status

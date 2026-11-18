@@ -9,7 +9,7 @@ const REVEAL = (delay: string): CSSProperties =>
 export function Hero() {
   return (
     <section className="relative flex min-h-screen w-full flex-col overflow-hidden">
-      <CircuitTraces className="pointer-events-none absolute inset-0 h-full w-full opacity-70 mask-[radial-gradient(ellipse_at_center,black_40%,transparent_85%)]" />
+      <CircuitTraces className="pointer-events-none absolute inset-0 h-full w-full opacity-30 mask-[radial-gradient(ellipse_at_center,black_40%,transparent_85%)]" />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_30%_30%,var(--hero-glow),transparent_60%)]" />
 
       <div className="relative z-10 flex flex-1 items-center">
@@ -19,7 +19,7 @@ export function Hero() {
           </div>
 
           <h1
-            className="reveal font-mono text-[44px] font-medium leading-[1.05] tracking-tight text-foreground sm:text-[72px] md:text-[88px]"
+            className="reveal text-[48px] font-semibold leading-[1.02] tracking-tight text-foreground sm:text-[76px] md:text-[96px]"
             style={REVEAL("0.2s")}
           >
             Faysal Ahmed<span className="text-accent">.</span>
@@ -42,6 +42,10 @@ export function Hero() {
             </span>
             <Dot />
             <span>
+              <span className="text-foreground">Founder &amp; CEO, ShokherSoft</span>
+            </span>
+            <Dot />
+            <span>
               <span className="text-foreground">Nerddevs Limited</span>
             </span>
             <Dot />
@@ -53,8 +57,8 @@ export function Hero() {
             style={REVEAL("0.65s")}
           >
             <a
-              href="#projects"
-              className="group inline-flex items-center gap-2 border border-border-strong bg-surface/70 px-5 py-3 font-mono text-xs uppercase tracking-widest text-foreground backdrop-blur transition-colors hover:border-accent hover:text-accent"
+              href="#shokhersoft"
+              className="group inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background transition-opacity hover:opacity-85"
             >
               View work
               <span className="transition-transform group-hover:translate-x-0.5">
@@ -89,7 +93,7 @@ export function Hero() {
           <span className="inline-block h-px w-8 bg-border-strong" />
           Scroll
         </span>
-        <span>[ 01 / 09 ] hero</span>
+
       </div>
     </section>
   );
@@ -114,7 +118,7 @@ function IconLink({
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className="group inline-flex h-10 w-10 items-center justify-center border border-border-strong bg-surface/70 text-muted backdrop-blur transition-colors hover:border-accent hover:text-accent"
+      className="group inline-flex h-10 w-10 items-center justify-center rounded-full border border-border-strong bg-surface/70 text-muted backdrop-blur transition-colors hover:border-accent hover:text-accent"
     >
       {children}
     </a>

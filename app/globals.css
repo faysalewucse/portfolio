@@ -65,11 +65,6 @@ body {
   font-feature-settings: "ss01", "cv11";
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  background-image:
-    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
-  background-size: 25px 25px;
-  background-position: -1px -1px;
 }
 
 ::selection {
@@ -136,7 +131,7 @@ body {
 
 /* Card hover border trace — animation only runs while hovered, so idle cards
    don't burn CPU on invisible strokes. */
-.card-glow .card-trace { opacity: 0; transition: opacity 0.35s ease; }
+.card-glow .card-trace { display: none; }
 .card-glow .card-trace .trace-flow { animation-play-state: paused; }
 .card-glow:hover .card-trace { opacity: 1; }
 .card-glow:hover .card-trace .trace-flow { animation-play-state: running; }
@@ -144,13 +139,13 @@ body {
 .section {
   position: relative;
   width: 100%;
-  padding-top: 120px;
-  padding-bottom: 120px;
+  padding-top: 96px;
+  padding-bottom: 96px;
 }
 @media (min-width: 768px) {
   .section {
-    padding-top: 160px;
-    padding-bottom: 160px;
+    padding-top: 128px;
+    padding-bottom: 128px;
   }
 }
 

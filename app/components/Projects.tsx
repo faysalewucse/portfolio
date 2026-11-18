@@ -160,114 +160,6 @@ const GROUPS: Group[] = [
       },
     ],
   },
-  {
-    id: "personal",
-    company: "Personal / Side",
-    subtitle: "Self-shipped · Play Store",
-    period: "Ongoing",
-    projects: [
-      {
-        n: "01",
-        name: "Ruqyah & Ayat",
-        tag: "Full-Stack · App + Admin",
-        year: "2023 – 24",
-        hook: "Full-stack Islamic companion app. Flutter client plus an Express + MongoDB backend and a Vite-powered admin panel where the team manages content and app versions. Firebase push, offline mode, dark / light themes.",
-        stack: [
-          "Flutter",
-          "GetX",
-          "Vite (Admin)",
-          "Express",
-          "MongoDB",
-          "Firebase",
-        ],
-        icon: "/icons/ruqyah-app-icon.png",
-        links: [
-          {
-            label: "Play Store ↗",
-            href: "https://play.google.com/store/apps/details?id=com.sunnahcurebd.rukiyah_and_ayat",
-          },
-        ],
-        images: {
-          dark: "/images/ruqyah-ayat.png",
-          light: "/images/ruqyah-ayat.png",
-          alt: "Ruqyah & Ayat product screenshot",
-        },
-      },
-      {
-        n: "02",
-        name: "Prophetic Healing",
-        tag: "Full-Stack · App + Web + Portal",
-        year: "2024",
-        hook: "Islamic healing & wellness product. Flutter mobile client plus a Next.js consumer website and an admin portal for managing content and users — end-to-end ownership across three surfaces.",
-        stack: ["Flutter", "Next.js", "Express", "MongoDB"],
-        icon: "/icons/prophetic-app-icon.png",
-        iconPad: true,
-        links: [
-          {
-            label: "Play Store ↗",
-            href: "https://play.google.com/store/apps/details?id=com.devskafela.prophetichealingbd",
-          },
-          {
-            label: "Website ↗",
-            href: "https://propheticheaLingbd.com",
-          },
-        ],
-        images: {
-          dark: "/images/prophetic-healing.png",
-          light: "/images/prophetic-healing.png",
-          alt: "Prophetic Healing product screenshot",
-        },
-      },
-      {
-        n: "03",
-        name: "Hanafi Fiqh",
-        tag: "Full-Stack · App + Web",
-        year: "2024",
-        hook: "Reference app for Hanafi jurisprudence with a companion website at hanafifiqh.net. Structured, searchable content tuned for fast navigation — both surfaces built end-to-end.",
-        stack: ["Flutter", "Next.js", "Firebase"],
-        icon: "/icons/hf-app-icon.png",
-        links: [
-          {
-            label: "Play Store ↗",
-            href: "https://play.google.com/store/apps/details?id=com.hanafifiqh.app",
-          },
-          {
-            label: "Website ↗",
-            href: "https://hanafifiqh.net",
-          },
-        ],
-        images: {
-          dark: "/images/hf-dark.png",
-          light: "/images/hf-light.png",
-          alt: "Hanafi Fiqh website screenshot",
-        },
-      },
-      {
-        n: "04",
-        name: "MediWhole",
-        tag: "Full-Stack · App + Web + Pharmacy Portal",
-        year: "2024",
-        hook: "Healthcare product spanning a Flutter mobile app, a Next.js consumer website, and a separate portal for pharmacies to manage their data. Designed for daily, high-frequency use.",
-        stack: ["Flutter", "Next.js", "Express", "MongoDB"],
-        icon: "/icons/mediwhole-app-icon.png",
-        links: [
-          {
-            label: "Play Store ↗",
-            href: "https://play.google.com/store/apps/details?id=com.devskafela.mediwhole",
-          },
-          {
-            label: "Website ↗",
-            href: "https://mediwholebd.com",
-          },
-        ],
-        images: {
-          dark: "/images/mediwhole.png",
-          light: "/images/mediwhole.png",
-          alt: "MediWhole product screenshot",
-        },
-      },
-    ],
-  },
 ];
 
 const TOTAL = GROUPS.reduce((sum, g) => sum + g.projects.length, 0);
@@ -323,7 +215,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
   const hasImage = Boolean(project.images);
   const imageRight = index % 2 === 0;
   return (
-    <article className="card-glow group relative overflow-hidden border border-border bg-surface/40 p-8 transition-all duration-500 ease-out hover:-translate-y-1 hover:border-border-strong sm:p-10">
+    <article className="card-glow group relative overflow-hidden rounded-2xl border border-border bg-surface/40 p-8 transition-all duration-500 ease-out hover:-translate-y-1 hover:border-border-strong sm:p-10">
       <svg
         aria-hidden
         className="card-trace pointer-events-none absolute inset-0 h-full w-full"
@@ -378,7 +270,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                 }`}
               />
             )}
-            <h3 className="font-mono text-3xl font-medium leading-tight tracking-tight text-foreground sm:text-4xl">
+            <h3 className="text-2xl font-semibold leading-tight tracking-tight text-foreground sm:text-3xl">
               {project.name}
             </h3>
           </div>
@@ -439,7 +331,7 @@ function ProjectImage({
 }) {
   return (
     <div
-      className={`relative -mx-8 overflow-hidden bg-surface shadow-[0_8px_30px_rgba(0,0,0,0.25)] transition-transform duration-700 ease-out group-hover:-translate-y-1 sm:-mx-10 md:mx-0 md:rounded-md md:border md:border-border-strong ${className}`}
+      className={`relative -mx-8 overflow-hidden bg-surface shadow-[0_8px_30px_rgba(0,0,0,0.25)] transition-transform duration-700 ease-out group-hover:-translate-y-1 sm:-mx-10 md:mx-0 md:rounded-xl md:border md:border-border-strong ${className}`}
       style={{ aspectRatio: "1720 / 890" }}
     >
       <Image

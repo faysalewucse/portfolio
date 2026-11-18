@@ -28,7 +28,6 @@ export const TOTAL_SECTIONS = "09";
 export function SectionLabel({ n, label }: { n: string; label: string }) {
   return (
     <div className="section-label">
-      <span>[ {n} / {TOTAL_SECTIONS} ]</span>
       <span>{label}</span>
     </div>
   );
@@ -43,7 +42,7 @@ export function SectionHeading({
 }) {
   return (
     <h2
-      className={`font-mono text-3xl font-medium leading-tight tracking-tight text-foreground sm:text-4xl ${className}`}
+      className={`text-3xl font-semibold leading-tight tracking-tight text-foreground sm:text-[2.6rem] ${className}`}
     >
       {children}
     </h2>

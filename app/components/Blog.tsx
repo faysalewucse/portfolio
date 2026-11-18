@@ -41,7 +41,7 @@ function BlogCard({ post }: { post: PostMeta }) {
   return (
     <Link
       href={`/blog/${post.slug}`}
-      className="card-glow group relative flex h-full flex-col gap-5 overflow-hidden border border-border bg-surface/40 p-6 transition-colors hover:border-border-strong sm:p-8"
+      className="card-glow group relative flex h-full flex-col gap-5 overflow-hidden rounded-2xl border border-border bg-surface/40 p-6 transition-colors hover:border-border-strong sm:p-8"
     >
       <div className="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[11px] uppercase tracking-widest text-muted">
         <span className="text-accent">{TYPE_META[post.type].label}</span>

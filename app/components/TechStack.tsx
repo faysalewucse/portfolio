@@ -212,7 +212,7 @@ export function TechStack() {
         </div>
       </div>
 
-      <div className="scroll-reveal relative w-full overflow-x-auto rounded-sm border border-border bg-surface/30">
+      <div className="scroll-reveal relative w-full overflow-x-auto rounded-2xl border border-border bg-surface/30">
         <svg
           viewBox="0 0 1400 740"
           xmlns="http://www.w3.org/2000/svg"
@@ -369,7 +369,7 @@ export function TechStack() {
 
 function StackCard({ card }: { card: Card }) {
   return (
-    <div className="group relative flex h-full flex-col gap-5 overflow-hidden border border-border bg-surface/40 p-6 transition-all duration-500 ease-out hover:-translate-y-1 hover:border-border-strong">
+    <div className="group relative flex h-full flex-col gap-5 overflow-hidden rounded-2xl border border-border bg-surface/40 p-6 transition-all duration-500 ease-out hover:-translate-y-1 hover:border-border-strong">
       <div className="flex flex-col gap-2 border-b border-border pb-4">
         <div className="font-mono text-xs uppercase tracking-widest text-accent">
           {card.k}
