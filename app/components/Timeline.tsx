@@ -83,7 +83,7 @@ function EntryCard({
         <span className="text-accent">●</span>
         <span>{entry.period}</span>
       </div>
-      <h3 className="mt-3 font-mono text-xl font-medium leading-snug tracking-tight text-foreground sm:text-2xl">
+      <h3 className="mt-3 text-xl font-semibold leading-snug tracking-tight text-foreground sm:text-2xl">
         {entry.role}
       </h3>
       <div className="mt-1 text-sm text-muted">{entry.org}</div>

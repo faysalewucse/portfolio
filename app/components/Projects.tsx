@@ -188,7 +188,7 @@ function ProjectGroup({ group }: { group: Group }) {
     <div>
       <div className="scroll-reveal mb-10 flex flex-wrap items-end justify-between gap-4 border-b border-border pb-6">
         <div>
-          <h3 className="font-mono text-xl font-medium tracking-tight text-foreground sm:text-2xl">
+          <h3 className="text-xl font-semibold tracking-tight text-foreground sm:text-2xl">
             {group.company}
           </h3>
           <p className="mt-1 font-mono text-[11px] uppercase tracking-widest text-muted">

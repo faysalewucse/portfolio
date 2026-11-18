@@ -67,7 +67,7 @@ export default async function PostPage({
               <span>{meta.readMinutes} min read</span>
             </div>
 
-            <h1 className="mt-8 max-w-3xl font-mono text-3xl font-medium leading-[1.15] tracking-tight text-foreground sm:text-4xl md:text-5xl">
+            <h1 className="mt-8 max-w-3xl text-3xl font-semibold leading-[1.15] tracking-tight text-foreground sm:text-4xl md:text-5xl">
               {meta.title}
             </h1>
 

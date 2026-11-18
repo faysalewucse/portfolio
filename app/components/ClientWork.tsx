@@ -172,7 +172,21 @@ export function ClientWork() {
           <p className="mt-5 text-base leading-relaxed text-muted sm:text-lg">
             Websites, mobile apps and admin portals I designed and shipped
             end-to-end for businesses across healthcare, retail, finance and
-            education — built with my team at ShokherSoft.
+            education, alongside my day job.
+          </p>
+          <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg">
+            This work is the start of{" "}
+            <a
+              href="https://shokhersoft.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-foreground underline decoration-border-strong underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
+            >
+              ShokherSoft
+            </a>{" "}
+            — the software agency I dream of building: a small team that
+            designs, builds and supports products end-to-end for businesses
+            that want to grow.
           </p>
         </div>
         <span className="font-mono text-xs uppercase tracking-widest text-muted">

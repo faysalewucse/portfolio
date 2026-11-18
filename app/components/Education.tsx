@@ -1,17 +1,7 @@
 import { Timeline, type TimelineEntry } from "./Timeline";
-import { NerddevsLink, Section, SectionHeading } from "./ui";
+import { Section, SectionHeading } from "./ui";
 
 const ENTRIES: TimelineEntry[] = [
-  {
-    period: "Jan 2025 — Present",
-    role: "Islamic Studies",
-    org: "Islamic Online Madrasah (IOM) · Batch 2513",
-    notes: [
-      <>
-        Pursued in parallel with the day job at <NerddevsLink />.
-      </>,
-    ],
-  },
   {
     period: "2019 — Jul 2023",
     role: "BSc in Computer Science & Engineering",

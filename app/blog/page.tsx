@@ -24,7 +24,7 @@ export default function BlogIndexPage() {
         <span className="font-mono text-[11px] uppercase tracking-widest text-muted">
           [ Writing ]
         </span>
-        <h1 className="mt-4 font-mono text-4xl font-medium leading-tight tracking-tight text-foreground sm:text-5xl">
+        <h1 className="mt-4 text-4xl font-semibold leading-tight tracking-tight text-foreground sm:text-5xl">
           Two tracks.
         </h1>
         <p className="mt-6 text-lg leading-relaxed text-muted">
@@ -49,7 +49,7 @@ function TypeSection({ typeDef }: { typeDef: TypeDef }) {
     <section>
       <div className="mb-12 flex flex-wrap items-end justify-between gap-4 border-b border-border pb-6">
         <div>
-          <h2 className="font-mono text-3xl font-medium tracking-tight text-foreground sm:text-4xl">
+          <h2 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
             {typeDef.label}
           </h2>
           <p className="mt-2 font-mono text-[11px] uppercase tracking-widest text-muted">
@@ -90,7 +90,7 @@ function CategoryBlock({
   return (
     <div>
       <div className="mb-6 flex flex-wrap items-baseline justify-between gap-3">
-        <h3 className="font-mono text-xl font-medium tracking-tight text-foreground sm:text-2xl">
+        <h3 className="text-xl font-semibold tracking-tight text-foreground sm:text-2xl">
           {category.label}
         </h3>
         {category.description && (

@@ -82,7 +82,7 @@ export function CaseStudyButton({
               <span className="font-mono text-[11px] uppercase tracking-widest text-muted">
                 Case study · {projectTag}
               </span>
-              <h3 className="font-mono text-2xl font-medium leading-tight tracking-tight text-foreground sm:text-3xl">
+              <h3 className="text-2xl font-semibold leading-tight tracking-tight text-foreground sm:text-3xl">
                 {projectName}
               </h3>
             </div>

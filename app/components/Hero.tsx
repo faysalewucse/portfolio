@@ -35,7 +35,7 @@ export function Hero() {
           style={REVEAL("0.5s")}
         >
           <a
-            href="#client-work"
+            href="#projects"
             className="group inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-semibold text-background transition-opacity hover:opacity-85"
           >
             View work

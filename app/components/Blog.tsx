@@ -51,7 +51,7 @@ function BlogCard({ post }: { post: PostMeta }) {
         <span>{post.readMinutes} min</span>
       </div>
 
-      <h3 className="font-mono text-xl font-medium leading-snug tracking-tight text-foreground transition-colors group-hover:text-accent sm:text-2xl">
+      <h3 className="text-xl font-semibold leading-snug tracking-tight text-foreground transition-colors group-hover:text-accent sm:text-2xl">
         {post.title}
       </h3>
 

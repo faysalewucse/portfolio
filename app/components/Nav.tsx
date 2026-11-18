@@ -4,8 +4,8 @@ import { ThemeToggle } from "./ThemeToggle";
 const LINKS: Array<{ label: string; href: string }> = [
   { label: "About", href: "#about" },
   { label: "Stack", href: "#stack" },
-  { label: "Products", href: "#client-work" },
   { label: "Work", href: "#projects" },
+  { label: "Clients", href: "#client-work" },
   { label: "Experience", href: "#experience" },
   { label: "Writing", href: "#blog" },
   { label: "Contact", href: "#contact" },
